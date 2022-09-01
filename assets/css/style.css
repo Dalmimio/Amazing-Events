@@ -100,16 +100,20 @@ main{
 
 .cart_detail{
     width: 75%;
-
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
     background:rgb(225, 225, 225,0.2) !important;
 }
 
 .img_details{
-    width: 50%;
+    width: 40%;
     height: 40%;
 }
 .texto_details{
-    width: 50%;
+
+    width: 60%;
     height: 60%;
 }
 
@@ -153,17 +157,18 @@ footer{
 
 @media screen and (max-width: 950px){
     .cart_detail{
+        display: block;
         width: 100%;
         flex-direction: column;    
     }
     
     .img_details{
-        width: 70%;
+        width: 50%;
         margin-left: auto;
         margin-right: auto;
     }
     .texto_details{
-        width: 90%;
+        width: 60%;
         padding: 1rem;
     }
     .form__contact{
@@ -194,9 +199,16 @@ footer{
     }
 
     .card__details{
+        margin: 2rem;
         padding: 0 !important;
         width: 100% !important;
-        flex-direction: column-reverse !important;
+        flex-direction: column !important;
+    }
+    .img_details{
+        width: 60%;
+    }
+    .texto_details{
+        width: 90%;
     }
     
    
