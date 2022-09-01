@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="shortcut icon" href="../img/logoAmazingEventsfavicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Events</title>
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img class="logo__nav img-fluid" src="../img/logoAmazingEvents.png"
+            alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link  style_nav bg-danger text-white" aria-current="page" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  style_nav bg-danger text-white" href="upcomming_events.html">Upcomming Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  style_nav bg-danger text-white active" href="past_events.html">Past Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  style_nav bg-danger text-white" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  style_nav bg-danger text-white" href="stats.html">Stats</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- carousel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-inner color_carousel text-white d-flex justify-content-center align-items-center carousel_header">
+        <div class="carousel-item">
+          <h3>Home</h3>
+        </div>
+        <div class="carousel-item ">
+          <h3>Upcomming Events</h3>
+        </div>
+        <div class="carousel-item active">
+          <h3>Past Events</h3>
+        </div>
+        <div class="carousel-item  ">
+          <h3>Contact</h3>
+        </div>
+        <div class="carousel-item">
+          <h3>Stats</h3>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </header>
+
+  <main class="d-flex flex-row gap-2 p-5 justify-content-center flex-wrap">
+
+    <div class="container">
+      <form class="d-flex gap-3 flex-wrap justify-content-around" action="">
+        <div class="categorias ">
+          <input type="checkbox" name="cat1" id="cat1" value="1">
+          <label for="cat1">Category</label>
+          <input type="checkbox" name="cat2" id="cat2" value="2">
+          <label for="cat2">Category</label>
+          <input type="checkbox" name="cat3" id="cat3" value="3">
+          <label for="cat3">Category</label>
+          <input type="checkbox" name="cat4" id="cat4" value="4">
+          <label for="cat4">Category</label>
+        </div>
+
+        <div class="d-flex">
+          <input class="form-control" type="search" placeholder="Search"
+          >
+          <button class="btn btn-outline-success" type="submit"><i class="uil uil-search-alt"></i></button>
+        </div>
+
+      </form>
+    </div>
+
+    <div id="carouselControls" class="carousel slide carousel-main d-flex justify-content-center" data-bs-ride="false">
+      <div class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/cine7.jpg" class="card-img-top" alt="cinema">
+                  <div class="card-body">
+                    <h5 class="card-title">Cinema</h5>
+                    <p class="card-text">descriptive text.</p>
+
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/conciertodemusica1.jpg" class="card-img-top" alt="concert">
+                  <div class="card-body">
+                    <h5 class="card-title">Concert</h5>
+                    <p class="card-text">descriptive text.</p>
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                    
+                  </div>
+                </div>
+
+              </div>
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/feriadecomidas7.jpg" class="card-img-top" alt="foodfair">
+                  <div class="card-body">
+                    <h5 class="card-title">Food fair</h5>
+                    <p class="card-text">descriptive text.</p>
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row">
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/fiestadedisfraces1.jpg" class="card-img-top" alt="costume">
+                  <div class="card-body">
+                    <h5 class="card-title">Costume party</h5>
+                    <p class="card-text">descriptive text.</p>
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/maraton3.jpg" class="card-img-top" alt="marathon">
+                  <div class="card-body">
+                    <h5 class="card-title">Marathon</h5>
+                    <p class="card-text">descriptive text.</p>
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
+                  <img src="../img/salidaAlMuseo.jpg" class="card-img-top" alt="museum">
+                  <div class="card-body">
+                    <h5 class="card-title">Visit the museum</h5>
+                    <p class="card-text">descriptive text.</p>
+
+                    <div class="d-flex justify-content-between">
+                      <p>price #00</p>
+                      <a href="describe.html" class="btn text-white">more</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+  </main>
+
+  <footer class="text-white">
+    <div class="f__redes">
+      <a href="https://www.instagram.com/"><i class="uil uil-instagram icon__footer"></i></a>
+      <a href="https://www.facebook.com/"><i class="uil uil-facebook icon__footer"></i></a>
+      <a href="https://web.whatsapp.com/"><i class="uil uil-whatsapp icon__footer"></i></a>
+    </div>
+    <h3>Amazing Events</h3>
+    <div>
+      <h3>Cohort</h3>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

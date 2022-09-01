@@ -1,0 +1,205 @@
+/* - - - - - - - - - - H E A D E R - - - - - - - - - - */
+header{
+    min-height: 15vh;
+}
+.header__describe{
+    min-height: 7vh;
+}
+nav{
+    min-height: 7vh;
+}
+.logo__nav{
+    width: 8vw;
+}
+
+.style_nav{
+    background-color: #132d46 !important;
+    margin: 0 1rem;
+    border: double rgb(167, 190, 132);
+
+}
+@keyframes bounce{
+    30%{
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px)
+    }
+}
+.style_nav:hover{
+    animation: bounce 1s;
+}
+
+
+
+.color_carousel{
+    background-color: #132d46;
+}
+
+.carousel-item{
+    margin: 0;
+    text-align: center;
+}
+.carousel_header{
+    height: 8vh;
+}
+/* - - - - - - - - - - M A I N - - - - - - - - - - */
+main{
+    min-height: 72.5vh;
+    background-color: #01c380 !important;
+}
+.main__describe{
+    min-height: 83vh;
+}
+#carouselControls{
+    width: 90%;
+}
+
+.card_tarjeta{
+    width: 250px;
+    height: 300px;
+}
+
+.card_tarjeta img{
+    height: 50%;
+    box-shadow: rgba(0, 0, 0, 0.5) -3px -3px 6px 1px;
+}
+.btn{
+    background-color: #132d46 !important;
+}
+
+.card{
+    background:rgb(225, 225, 225,0.2) !important;
+}
+
+/* - - - - - - - - - - C O N T A C T - - - - - - - - - - */
+
+.form__contact{
+    width: 35%;
+    
+}
+
+.form__contact label{
+    margin-top: 1rem;
+}
+.form__contact input{
+    padding: .5rem;
+    border-radius: .2rem;
+    border: none;
+    margin-bottom: 1rem;
+    height: 2rem;
+}
+
+
+
+
+.input__mesagge{
+    min-height: 7rem;
+    margin-bottom: 1rem;
+}
+
+/* - - - - - - - - - - D E T A I L S - - - - - - - - - - */
+
+.cart_detail{
+    width: 75%;
+
+    background:rgb(225, 225, 225,0.2) !important;
+}
+
+.img_details{
+    width: 50%;
+    height: 40%;
+}
+.texto_details{
+    width: 50%;
+    height: 60%;
+}
+
+/* - - - - - - - - - - S T A T S - - - - - - - - - - */
+
+table, th, tr{
+    border: solid 1px black;
+}
+table{
+    width: 70% !important;
+    padding: 0  !important;
+}
+th{
+    
+    font-size: 15px;
+    background-color: rgba(240, 248, 255, 0.233) !important;
+}
+.title{
+    background-color: #132d4659 !important;
+}
+
+/* - - - - - - - - - - F O O T E R - - - - - - - - - - */
+
+footer{
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 1rem 0 1rem;
+    background-color: #132d46 !important;
+}
+
+.icon__footer{
+    font-size: 35px;
+    color: antiquewhite;
+}
+.size{
+    width: 80%;
+}
+/* - - - - - - - - - - M E D I A  Q U E R Y - - - - - - - - - - */
+
+
+@media screen and (max-width: 950px){
+    .cart_detail{
+        width: 100%;
+        flex-direction: column;    
+    }
+    
+    .img_details{
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .texto_details{
+        width: 90%;
+        padding: 1rem;
+    }
+    .form__contact{
+        width: 60%;
+        
+    }
+    table{
+        width: 90% !important;
+        padding: 0  !important;
+    }
+
+}
+
+@media screen and (max-width: 450px){
+    footer{
+        flex-direction: column;
+        padding: .5rem;
+    }
+    .form__contact{
+        width: 80%;
+        
+    }
+    #carouselControls{
+        width: 100%;
+    }
+    .card{
+        margin: .2rem 0;
+    }
+
+    .card__details{
+        padding: 0 !important;
+        width: 100% !important;
+        flex-direction: column-reverse !important;
+    }
+    
+   
+    
+
+}
