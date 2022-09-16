@@ -6,32 +6,42 @@ header{
     min-height: 7vh;
 }
 nav{
-    min-height: 7vh;
+    min-height: 7vh;    
+    
 }
 .logo__nav{
     width: 8vw;
 }
 
 .style_nav{
-    background-color: #132d46 !important;
+    background-color: #AE95C2 !important;
     margin: 0 1rem;
-    border: double rgb(167, 190, 132);
-
+    border: double #3a0168;
+    color: #3a0168 !important;
 }
+
 @keyframes bounce{
     30%{
         -webkit-transform: translateX(-10px);
-        transform: translateX(-10px)
+        transform: translateX(-10px) rotateX(25deg);
+
     }
 }
 .style_nav:hover{
+    color: #fff !important;
+    background-color:#3a0168 !important;
+    border: double #AE95C2;
     animation: bounce 1s;
 }
 
-
+.active__nav{
+    color: #fff !important;
+    background-color:#3a0168 !important;
+    border: double #AE95C2;
+}
 
 .color_carousel{
-    background-color: #132d46;
+    background-color: #DFA77B;
 }
 
 .carousel-item{
@@ -44,30 +54,47 @@ nav{
 /* - - - - - - - - - - M A I N - - - - - - - - - - */
 main{
     min-height: 72.5vh;
-    background-color: #01c380 !important;
+    background-color: #95B7D8 !important;
 }
 .main__describe{
-    min-height: 83vh;
+    min-height: 80.5vh;
 }
 #carouselControls{
     width: 90%;
 }
 
-.card_tarjeta{
-    width: 250px;
-    height: 300px;
-}
-
-.card_tarjeta img{
-    height: 50%;
-    box-shadow: rgba(0, 0, 0, 0.5) -3px -3px 6px 1px;
-}
-.btn{
-    background-color: #132d46 !important;
-}
 
 .card{
-    background:rgb(225, 225, 225,0.2) !important;
+    background:#61a0a052 !important;
+    width: 15rem;
+    height: auto;
+}
+.card_tarjeta{
+    border-radius: 10rem 10rem 0rem 0rem;
+    background-color: #132d4659;
+}
+.card-body{
+    height: 14rem;
+}
+.card-text{
+    height: 60%;
+}
+.img-card{
+    width: 100%;
+    height: 10rem;
+    box-shadow: rgba(0, 0, 0, 0.5) -3px -3px 6px 1px;
+    border-radius: 10rem 10rem 0rem 0rem;
+    object-fit: cover;
+
+}
+
+.btn{
+    background-color: #E4C989 !important;
+    color: black !important;
+}
+.btn:hover{
+    background-color: #D4929E !important;
+    color: wheat !important;
 }
 
 /* - - - - - - - - - - C O N T A C T - - - - - - - - - - */
@@ -111,6 +138,7 @@ main{
     width: 40%;
     height: 40%;
 }
+
 .texto_details{
 
     width: 60%;
@@ -142,12 +170,12 @@ footer{
     display: flex;
     justify-content: space-between;
     padding: .5rem 1rem 0 1rem;
-    background-color: #132d46 !important;
+    background-color: #DFA77B !important;
 }
 
 .icon__footer{
     font-size: 35px;
-    color: antiquewhite;
+    color: #fff;
 }
 .size{
     width: 80%;
@@ -156,6 +184,10 @@ footer{
 
 
 @media screen and (max-width: 950px){
+    .nav-item{
+        margin: .1rem;
+        text-align: center;
+    }
     .cart_detail{
         display: block;
         width: 100%;
@@ -186,6 +218,7 @@ footer{
     footer{
         flex-direction: column;
         padding: .5rem;
+        text-align: center;
     }
     .form__contact{
         width: 80%;
@@ -195,7 +228,7 @@ footer{
         width: 100%;
     }
     .card{
-        margin: .2rem 0;
+        margin: .1rem 0;
     }
 
     .card__details{

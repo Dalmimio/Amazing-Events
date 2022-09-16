@@ -17,7 +17,7 @@
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><img class="logo__nav img-fluid" src="assets/img/logoAmazingEvents.png"
             alt=""></a>
@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active style_nav bg-danger text-white" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link active style_nav active__nav bg-danger text-white" aria-current="page" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link style_nav bg-danger text-white" href="assets/html/upcomming_events.html">Upcomming Events</a>
@@ -98,61 +98,18 @@
         <div class="d-flex">
           <input class="form-control" type="search" placeholder="Search"
           >
-          <button class="btn btn-outline-success" type="submit"><i class="uil uil-search-alt"></i></button>
+          <button class="btn" type="submit"><i class="uil uil-search-alt"></i></button>
         </div>
 
       </form>
     </div>
 
-    <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
-      <img src="assets/img/cine7.jpg" class="card-img-top" alt="cinema">
-      <div class="card-body">
-        <h5 class="card-title">Cinema</h5>
-        <p class="card-text">descriptive text.</p>
 
-        <div class="d-flex align-bottom justify-content-between">
-          <p>price #00</p>
-        <a href="assets/html/describe.html" class="btn text-white">more</a>
-        </div>
-      </div>
-    </div>
+      <section id="contenido-index" class="d-flex flex-row gap-2 p-5 justify-content-center flex-wrap">
 
-    <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
-      <img src="assets/img/conciertodemusica1.jpg" class="card-img-top" alt="concert">
-      <div class="card-body">
-        <h5 class="card-title">Concert</h5>
-        <p class="card-text">descriptive text.</p>
-        <div class="d-flex justify-content-between">
-          <p>price #00</p>
-          <a href="assets/html/describe.html" class="btn text-white">more</a>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
-      <img src="assets/img/feriadecomidas7.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Food fair</h5>
-        <p class="card-text">descriptive text.</p>
-        <div class="d-flex justify-content-between">
-          <p>price #00</p>
-          <a href="assets/html/describe.html" class="btn text-white">more</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="card card_tarjeta p-2 text-center" style="width: 15rem;">
-      <img src="assets/img/fiestadedisfraces1.jpg" class="card-img-top" alt="disfraces">
-      <div class="card-body">
-        <h5 class="card-title">Costume party</h5>
-        <p class="card-text">descriptive text.</p>
-        <div class="d-flex justify-content-between">
-          <p>price #00</p>
-          <a href="assets/html/describe.html" class="btn text-white">more</a>
-        </div>
-      </div>
-    </div>
-
+   
   </main>
 
   <footer class="text-white">
@@ -172,6 +129,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
+
+  <script src="assets/data/data.js"></script>
+
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
