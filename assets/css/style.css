@@ -1,3 +1,23 @@
+/* - - - - - - - - - - Variables - - - - - - - - - - */
+:root {
+    --color-text-ligth: white;
+    --color-text-dark: black;
+    --color-background: #95B7D8;
+    --color-background-second:#DFA77B;
+    --color-btn--primary: #E4C989;
+    --color-btn-second:#D4929E;
+  }
+
+/* - - - - - - - - - - Scroll - - - - - - - - - - */
+.body::-webkit-scrollbar{
+    width: 7px;
+}
+.body::-webkit-scrollbar-thumb{
+    background: var(--color-background-second);
+    border-radius: 5px;
+}
+
+
 /* - - - - - - - - - - H E A D E R - - - - - - - - - - */
 header{
     min-height: 15vh;
@@ -6,32 +26,42 @@ header{
     min-height: 7vh;
 }
 nav{
-    min-height: 7vh;
+    min-height: 7vh;    
+    
 }
 .logo__nav{
     width: 8vw;
 }
 
 .style_nav{
-    background-color: #132d46 !important;
+    background-color: #AE95C2 !important;
     margin: 0 1rem;
-    border: double rgb(167, 190, 132);
-
+    border: double #3a0168;
+    color: #3a0168 !important;
 }
+
 @keyframes bounce{
     30%{
         -webkit-transform: translateX(-10px);
-        transform: translateX(-10px)
+        transform: translateX(-10px) rotateX(25deg);
+
     }
 }
 .style_nav:hover{
+    color: var(--color-text-ligth) !important;
+    background-color:#3a0168 !important;
+    border: double #AE95C2;
     animation: bounce 1s;
 }
 
-
+.active__nav{
+    color: var(--color-text-ligth) !important;
+    background-color:#3a0168 !important;
+    border: double #AE95C2;
+}
 
 .color_carousel{
-    background-color: #132d46;
+    background-color: var(--color-background-second);
 }
 
 .carousel-item{
@@ -44,32 +74,50 @@ nav{
 /* - - - - - - - - - - M A I N - - - - - - - - - - */
 main{
     min-height: 72.5vh;
-    background-color: #01c380 !important;
+    background-color: var(--color-background) !important;
 }
 .main__describe{
-    min-height: 83vh;
+    min-height: 80.5vh;
 }
 #carouselControls{
     width: 90%;
 }
 
-.card_tarjeta{
-    width: 250px;
-    height: 300px;
-}
-
-.card_tarjeta img{
-    height: 50%;
-    box-shadow: rgba(0, 0, 0, 0.5) -3px -3px 6px 1px;
-}
-.btn{
-    background-color: #132d46 !important;
-}
 
 .card{
-    background:rgb(225, 225, 225,0.2) !important;
+    background:#61a0a052 !important;
+    width: 15rem;
+    height: auto;
+}
+.card_tarjeta{
+    border-radius: 1rem;
+    background-color: #132d4659;
+}
+.card-body{
+    height: 14rem;
+}
+.card-text{
+    height: 60%;
+}
+.img-card{
+    width: 100%;
+    height: 10rem;
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 4px 1px;
+    object-fit: cover;
+
 }
 
+.btn{
+    background-color: var(--color-btn--primary) !important;
+    color: var(--color-text-dark) !important;
+}
+.btn:hover{
+    background-color: var(--color-btn-second) !important;
+    color: var(--color-text-ligth) !important;
+}
+.buscador{
+    gap: .5rem;
+}
 /* - - - - - - - - - - C O N T A C T - - - - - - - - - - */
 
 .form__contact{
@@ -88,7 +136,9 @@ main{
     height: 2rem;
 }
 
-
+#categorias{
+    gap: 1rem;
+}
 
 
 .input__mesagge{
@@ -111,6 +161,7 @@ main{
     width: 40%;
     height: 40%;
 }
+
 .texto_details{
 
     width: 60%;
@@ -142,12 +193,12 @@ footer{
     display: flex;
     justify-content: space-between;
     padding: .5rem 1rem 0 1rem;
-    background-color: #132d46 !important;
+    background-color: #DFA77B !important;
 }
 
 .icon__footer{
     font-size: 35px;
-    color: antiquewhite;
+    color: #fff;
 }
 .size{
     width: 80%;
@@ -156,10 +207,18 @@ footer{
 
 
 @media screen and (max-width: 950px){
+    #contenido-index{
+        width: 100%;
+        padding: 1rem !important;
+    }
+    .nav-item{
+        margin: .1rem;
+        text-align: center;
+    }
     .cart_detail{
         display: block;
         width: 100%;
-        flex-direction: column;    
+        flex-direction: column; 
     }
     
     .img_details{
@@ -183,9 +242,13 @@ footer{
 }
 
 @media screen and (max-width: 450px){
+    #contenido-index{
+        padding: 0;
+    }
     footer{
         flex-direction: column;
         padding: .5rem;
+        text-align: center;
     }
     .form__contact{
         width: 80%;
@@ -195,7 +258,7 @@ footer{
         width: 100%;
     }
     .card{
-        margin: .2rem 0;
+        margin: .1rem 0;
     }
 
     .card__details{
