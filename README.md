@@ -1,6 +1,10 @@
 # Amazing-events
 Segundo proyecto, modulo 2 bootcamp iniciatec
 
+
+MIRALA EN VIVO amazingeventsdalmimio.netlify.app
+
+
 Etapa 1
 
 Seccion home
