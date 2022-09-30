@@ -1,8 +1,8 @@
 let cadenaParametrosUrl = location.search;
 let parametros = new URLSearchParams(cadenaParametrosUrl);
 let id = parametros.get("id");
-
 let contenedor = document.getElementById("main__describe");
+
 
 let eventosFiltrados = (data.events).filter((evento) => {
   return evento;
@@ -11,7 +11,19 @@ let eventosFiltrados = (data.events).filter((evento) => {
 let eventoEncontrado = eventosFiltrados.find((evento) => evento._id == id);
 pintarEvento(eventoEncontrado);
 
+
+
 function pintarEvento(evento) {
+  let eventVariable = assistanceOrEstimate() 
+  
+  function assistanceOrEstimate(){
+    if(evento.date>data.currentDate){
+    return `Estimate: ${evento.estimate}`
+    }else{
+      return `Assistance: ${evento.assistance}`
+    }
+  }
+
   contenedor.innerHTML = "";
     let div = document.createElement('div')
     div.className="d-flex  cart_detail justify-content-center align-items-center flex-wrap"
@@ -29,7 +41,7 @@ function pintarEvento(evento) {
     </div>
     <div class="d-flex details_content">
     <p class="text-justify ">Capacity: ${evento.capacity}</p>
-    <p class="text-justify ">Assistance: ${evento.assistance}</p>
+    <p class="text-justify ">${eventVariable}</p>
     </div>
     <div class="d-flex details_content">
     <p class="text-justify ">Category: ${evento.category}</p>
