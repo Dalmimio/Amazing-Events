@@ -1,5 +1,6 @@
 # Amazing-events
-Segundo proyecto, modulo 2 bootcamp iniciatec
+Es el segundo proyecto del modulo 2 del bootcamp iniciatec, el mismo es una MPA (Multi Page Aplication), la misma consta de un diseño responsive y adaptable a todas las resoluciones, posee cartas dinamicas, mostrando Home todas las cartas; Upcomming cartas futuras y Past cartas pasadas. Para el dinamismo se uso JavaScript 
+
 
 
 MIRALA EN VIVO amazingeventsdalmimio.netlify.app
@@ -7,18 +8,15 @@ MIRALA EN VIVO amazingeventsdalmimio.netlify.app
 
 Etapa 1
 
-Seccion home
-![image](https://user-images.githubusercontent.com/94873345/188329565-b0c9ef77-f531-4ec8-b103-088838b34965.png)
+Seccion home, Upcomming events y past events (son  iguales en el sentido de estilo, tienen diferente contenido)
 
-Upcomming events y past events (son  iguales)
-![image](https://user-images.githubusercontent.com/94873345/188329594-8bf1b1d5-b642-4d9e-b54e-b51409a905ab.png)
+![Past Events_page-0001](https://user-images.githubusercontent.com/94873345/193178200-6a81d527-a4f8-40c4-b36b-a243ac0c1151.jpg)
 
-Contacto 
-![image](https://user-images.githubusercontent.com/94873345/188329601-9bd85e41-7c51-49cb-ad0c-85d52036ab5c.png)
 
-Stats
+Contacto (vista en tamaño tablet)
 
-![image](https://user-images.githubusercontent.com/94873345/188329613-2ff42595-6827-423f-83e2-8e09c8b2abed.png)
+![Contact_page-0001](https://user-images.githubusercontent.com/94873345/193178254-bc480c88-9cd0-48ec-bdfe-a032e28c7336.jpg)
 
-Details (se ingresa clickeando en el botón "more" de las tarjetas ubicadas tanto en home, upcomming events y en past events)
-![image](https://user-images.githubusercontent.com/94873345/188329654-ad66f6e8-66c9-4411-9b46-24ccca008ece.png)
+Error 404 
+
+![error_page-0001](https://user-images.githubusercontent.com/94873345/193178287-f0fd4174-e5bf-475d-b636-6b68fe724fb4.jpg)
