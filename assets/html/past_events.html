@@ -14,10 +14,10 @@
   <title>Past Events</title>
 </head>
 
-<body>
+<body class="body">
 
   <header>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#"><img class="logo__nav img-fluid" src="../img/logoAmazingEvents.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -27,19 +27,19 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link  style_nav bg-danger text-white" aria-current="page" href="/index.html">Home</a>
+              <a class="nav-link  style_nav text-white" aria-current="page" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  style_nav bg-danger text-white" href="upcomming_events.html">Upcomming Events</a>
+              <a class="nav-link  style_nav text-white" href="upcomming_events.html">Upcomming Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active__nav style_nav bg-danger text-white active" href="past_events.html">Past Events</a>
+              <a class="nav-link active__nav style_nav text-white active" href="past_events.html">Past Events</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  style_nav bg-danger text-white" href="contact.html">Contact</a>
+              <a class="nav-link  style_nav text-white" href="contact.html">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  style_nav bg-danger text-white" href="stats.html">Stats</a>
+              <a class="nav-link  style_nav text-white" href="stats.html">Stats</a>
             </li>
 
           </ul>
@@ -81,30 +81,24 @@
 
   </header>
 
-  <main class="d-flex flex-row gap-2 p-5 justify-content-center flex-wrap">
+  <main class="d-flex flex-row p-3 justify-content-center flex-wrap">
 
-    <div class="container">
+    <div class="container m-5">
       <form class="d-flex gap-3 flex-wrap justify-content-around" action="">
-        <div class="categorias ">
-          <input type="checkbox" name="cat1" id="cat1" value="1">
-          <label for="cat1">Category</label>
-          <input type="checkbox" name="cat2" id="cat2" value="2">
-          <label for="cat2">Category</label>
-          <input type="checkbox" name="cat3" id="cat3" value="3">
-          <label for="cat3">Category</label>
-          <input type="checkbox" name="cat4" id="cat4" value="4">
-          <label for="cat4">Category</label>
+        <div class="d-flex flex-row flex-wrap" id="categorias">
+          
         </div>
 
-        <div class="d-flex">
-          <input class="form-control" type="search" placeholder="Search">
-          <button class="btn" type="submit"><i class="uil uil-search-alt"></i></button>
+        <div class="d-flex buscador">
+          <input class="form-control" id="buscador" type="search" placeholder="Search"
+          >
+          
         </div>
 
       </form>
     </div>
     
-    <section id="contenido-past" class="d-flex flex-row gap-2 p-5 justify-content-center flex-wrap">
+    <section id="contenido-past" class="d-flex flex-row gap-3 p-5 justify-content-center flex-wrap">
      
     </section>
 
@@ -112,9 +106,9 @@
 
   <footer class="text-white">
     <div class="f__redes">
-      <a href="https://www.instagram.com/"><i class="uil uil-instagram icon__footer"></i></a>
-      <a href="https://www.facebook.com/"><i class="uil uil-facebook icon__footer"></i></a>
-      <a href="https://web.whatsapp.com/"><i class="uil uil-whatsapp icon__footer"></i></a>
+      <a href="https://www.instagram.com/"><img src="../img/ig.png" class="icon__footer" alt=""></a>
+      <a href="https://www.facebook.com/"><img src="../img/facebook.png" class="icon__footer" alt=""></a>
+      <a href="https://web.whatsapp.com/"><img src="../img/wsp.png" class="icon__footer" alt=""></a>
     </div>
     <h3>Amazing Events</h3>
     <div>
@@ -122,6 +116,14 @@
     </div>
   </footer>
 
+
+  <div class="go-top-container">
+    <div class="go-top-button">
+      <img src="../img/arrow.png" alt="">
+  
+      
+    </div>
+  </div>
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
