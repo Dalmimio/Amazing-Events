@@ -73,8 +73,7 @@ nav{
 main{
     min-height: 72.5vh;
     background-color: var(--color-background);
-    background-image: url(https://pbs.twimg.com/media/Fd2m7ElXgAAt7De?format=png&name=small);
-    
+    background-image: url(https://pbs.twimg.com/media/Fd7PmkvWAAs_6t2?format=png&name=small);
 }
 
 .main__describe{
@@ -101,7 +100,7 @@ main{
 .card_tarjeta{
     box-shadow: 1px 1px 5px rgba(52, 102, 98, 0.9);
     border-radius: 0;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(1px);
 
 }
 .card_tarjeta:hover{
@@ -213,7 +212,7 @@ width: 8rem !important;
 
 /* - - - - - - - - - - D E T A I L S - - - - - - - - - - */
 #main__describe{
-    min-height: 82.1vh;
+    min-height: 80.7vh;
 }
 .cart_detail{
     width: 80%;
