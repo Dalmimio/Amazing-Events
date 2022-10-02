@@ -216,7 +216,7 @@ width: 8rem !important;
 
 /* - - - - - - - - - - D E T A I L S - - - - - - - - - - */
 #main__describe{
-    min-height: 80.7vh;
+    min-height: 81vh;
 }
 .cart_detail{
     width: 80%;
@@ -283,7 +283,7 @@ th{
 
 
 .main__submit{
-    min-height: 90.8vh;
+    min-height: 91vh;
 }
 .thanks{
     width: 60%;
