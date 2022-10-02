@@ -155,3 +155,4 @@ document.querySelector('.go-top-container').addEventListener('click', () => {
     behavior: 'smooth'
   })
 })
+

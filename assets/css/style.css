@@ -1,3 +1,6 @@
+/* - - - - - - - - - - Fonts - - - - - - - - - - */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 /* - - - - - - - - - - Variables - - - - - - - - - - */
 :root {
     --color-text-ligth: white;
@@ -18,6 +21,7 @@
     border-radius: 5px;
 }
 
+*{font-family: 'Poppins', sans-serif;}
 
 /* - - - - - - - - - - H E A D E R - - - - - - - - - - */
 header{
@@ -94,7 +98,7 @@ main{
 .card{
     background:#ffffff1c !important;
     width: 15rem;
-    height: auto;
+    height: 26rem;
     color: var(--color-text-ligth);
 }
 .card_tarjeta{
@@ -272,6 +276,24 @@ th{
 .title{
     background-color: #132d4659 !important;
 }
+/* - - - - - - - - - - S U B M I T - - - - - - - - - - */
+.header__submit{
+    min-height: 9vh;
+}
+
+
+.main__submit{
+    min-height: 90.8vh;
+}
+.thanks{
+    width: 60%;
+}
+.main__submit img{
+    width: 100%;
+}
+.container_img{
+    width: 50%;
+}
 
 /* - - - - - - - - - - B O T O N C I T O  U  P - - - - - - - - - - */
 
@@ -341,6 +363,7 @@ footer{
     min-height: 10vh;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: .5rem 1rem 0 1rem;
     background-color: var(--color-background-second) !important;
 }
