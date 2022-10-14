@@ -75,7 +75,7 @@ nav{
 }
 /* - - - - - - - - - - M A I N - - - - - - - - - - */
 main{
-    min-height: 72.5vh;
+    min-height: 73vh;
     background-color: var(--color-background);
     background-image: url(https://pbs.twimg.com/media/Fd7PmkvWAAs_6t2?format=png&name=small);
 }
@@ -98,7 +98,7 @@ main{
 .card{
     background:#ffffff1c !important;
     width: 15rem;
-    height: 26rem;
+    height: 28rem;
     color: var(--color-text-ligth);
 }
 .card_tarjeta{
@@ -163,8 +163,15 @@ main{
 }
 .container__error{
     color: var(--color-text-ligth);
-    width: 500px;
+    width: 100%;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__error img{
+    width: 50%;
 }
 /* - - - - - - - - - - C O N T A C T - - - - - - - - - - */
 #contenido_contact{
@@ -262,16 +269,16 @@ margin: 10px;
     min-height: 73vh;
 }
 table, th, tr{
-    border: solid 1px black;
+    border: solid 1px rgb(0, 0, 0);
 }
 table{
-    width: 70% !important;
+    width: 80% !important;
     padding: 0  !important;
 }
-th{
-    
+th{   
+    width: 20%; 
     font-size: 15px;
-    background-color: rgba(240, 248, 255, 0.233) !important;
+    background-color: rgba(240, 248, 255, 0.137) !important;
 }
 .title{
     background-color: #132d4659 !important;
@@ -379,9 +386,8 @@ footer{
 /* - - - - - - - - - - M E D I A  Q U E R Y - - - - - - - - - - */
 
 
-@media screen and (max-width: 950px){
-    #contenido-index, #contenido-upcomming, #contenido-past{
-        width: 100%;
+@media screen and (max-width: 1050px){
+    #contenido{
         padding: 1rem !important;
     }
     #main__describe{
@@ -456,7 +462,7 @@ footer{
 }
 
 @media screen and (max-width: 450px){
-    #contenido-index, #contenido-upcomming, #contenido-past{
+    #contenido{
         padding: 3 !important;
     }
    
@@ -495,7 +501,9 @@ footer{
         width: 90%;
         padding: .5rem;
     }
-    
+    th{
+        font-size: 10px;
+    }
    
     
 
