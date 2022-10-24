@@ -1,266 +1,192 @@
-let categoriasContend = document.getElementById("categorias");
-let contenido = document.getElementById("contenido");
-let txtInput = document.getElementById("buscador");
-let form = document.querySelector("form");
-let contenedor = document.getElementById("main__describe");
-let buscadorText = ""; //variable para el buscador
-let arrayChecks = []; //array de los checks
-let arrayCartas = []; //array de las cartas
-let URL = "https://amazing-events.herokuapp.com/api/events"; // URL de la API
-let arrayCategorias = [];
-let date; //current date
+const {createApp} = Vue;
 
-traerDatos(URL);
-
-// ----------------------------------------------- T R A E R  D A T O S ----------------------------------------------
-function traerDatos(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      date = data.currentDate;
-
-      if (document.title == "Home") {
-        data.events.forEach((evento) => {
-          if (!arrayCategorias.includes(evento.category)) {
-            arrayCategorias.push(evento.category);
-          }
-          arrayCartas.push(evento);
-        });
-        agregarChecks(arrayCategorias);
-        buscador();
-        combinacionDeFiltros();
-      } else if (document.title == "Upcomming Events") {
-        data.events.forEach((evento) => {
-          if (evento.date > date) {
-            if (!arrayCategorias.includes(evento.category)) {
-              arrayCategorias.push(evento.category);
-            }
-            arrayCartas.push(evento);
-          }
-        });
-        agregarChecks(arrayCategorias);
-        buscador();
-        combinacionDeFiltros();
-      } else if (document.title == "Past Events") {
-        data.events.forEach((evento) => {
-          if (evento.date < date) {
-            if (!arrayCategorias.includes(evento.category)) {
-              arrayCategorias.push(evento.category);
-            }
-
-            arrayCartas.push(evento);
-          }
-        });
-        agregarChecks(arrayCategorias);
-        buscador();
-        combinacionDeFiltros();
-      } else if (document.title == "Details") {
-        let cadenaParametrosUrl = location.search;
-        let parametros = new URLSearchParams(cadenaParametrosUrl);
-
-        let id = parametros.get("id");
-
-        let eventosFiltrados = data.events.filter((evento) => {
-          return evento;
-        });
-
-        let eventoEncontrado = eventosFiltrados.find(
-          (evento) => evento._id == id
-        );
-        pintarEvento(eventoEncontrado);
+createApp({
+  data(){
+    
+    return{
+      urlAPI : 'https://amazing-events.herokuapp.com/api/events',
+      eventos : {
+        all : [],
+        up : [],
+        past : []
+      },                           // los voy a agrupar en un objeto y separarlos en all, up, past dentro del mismo
+      finalEvents : [],
+      categorias : {
+        all : [],
+        up : [],
+        past : []
+      },                      // lo mismo que arriba
+      backUpEventos : [],   //guardo los eventos para que no se pierdan
+      txtBuscado : '',    //
+      catBuscadas : [], //categorias buscadas
+      dateC : '',     //para traer la fecha actual
+      evento : {},   //evento details
+      stats:{ //objeto con todos los datos de stadisticasSS
+        higAttendance : {}, //mayor asistencia
+        lowAttendance :{},// menor assitencia
+        capacity : {}, //evento con mayor capacidad
+        up : [], //array con categorias, revenues y percentage past
+        past : [] //array con categorias, revenues y percentage up
       }
-    })
-    .catch("Hubo un error");
+    };
+  },
+  created(){
+    this.traerDatos()
+  },
+  mounted() {
+    
+  },
+  methods: {
+    traerDatos(){
+      fetch(this.urlAPI).then(response => response.json())
+      .then( data => {
+        this.dateC = data.currentDate;
+        data.events.forEach(evento => {
+         
+          
+        this.eventos.all.push(evento)
+          if(document.title == "Home"){
+            this.finalEvents.push(evento)
+          }else if(document.title == "Upcomming Events"){
+            if(evento.date>this.dateC){
+              this.finalEvents.push(evento)
+            }
+          }else if(document.title == "Past Events"){
+            if(evento.date<this.dateC){
+              this.finalEvents.push(evento)
+            }
+          }
+          
 
-  console.log(arrayCategorias);
-  console.log(arrayCartas);
-}
 
-// ----------------------------------------------- B U S C A D O R ----------------------------------------------
+          //todas las categorias         
+          if(!this.categorias.all.includes(evento.category)){
+            this.categorias.all.push(evento.category)            
+          }
 
-//para leer que escribo en el buscador
+          //categorias up
+          if(evento.date>this.dateC){
+            this.eventos.up.push(evento)
 
-function buscador() {
-  // Para detener el comportamiento por defecto del formulario
-  form.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-  });
+            if(!this.categorias.up.includes(evento.category))
+            {this.categorias.up.push(evento.category)}
+          }else{
+            //categorias past
+            this.eventos.past.push(evento)
+            if(!this.categorias.past.includes(evento.category))
+            {this.categorias.past.push(evento.category)}
+          }
+          
+        });
+        if(document.title == 'Stats'){
+          
+           // PRIMERA TABLA
+        let porcentajeEvents = []
+        this.eventos.past.map(evento => {
+          porcentajeEvents.push({
+            name: evento.name,
+            percentage: (evento.assistance * 100 / evento.capacity).toFixed(2),
+            id: evento._id
+          })
+        })
 
-  txtInput.addEventListener("keyup", (evento) => {
-    let dataInput = evento.target.value;
-    buscadorText = dataInput.toLowerCase();
-    combinacionDeFiltros();
-  });
-}
+        this.stats.higAttendance = porcentajeEvents.sort((a,b)=> b.percentage - a.percentage)[0]
+        this.stats.lowAttendance = porcentajeEvents.sort((a,b)=> a.percentage - b.percentage)[0]
+        this.stats.capacity = this.eventos.all.filter(evento=>evento.capacity).sort((a,b) => b.capacity - a.capacity)[0]
 
-// ----------------------------------------------- C A T E G O R I A S ----------------------------------------------
 
-function agregarChecks(array) {
-  console.log(array);
-  //muestra un array con los checkbox que estan checkeados
-categoriasContend.addEventListener("change", () => {
-  let checkboxes = document.querySelectorAll("input[type=checkbox]");
+        console.log(this.stats.capacity)
+        console.log(this.stats.higAttendance)
+        console.log(this.stats.lowAttendance)
+        // this.statsEvest (categorias, eventos, guardo)
+        this.statsEvents(this.categorias.up, this.eventos.up, this.stats.up)
+        this.statsEvents(this.categorias.past, this.eventos.past, this.stats.past)
 
-  arrayChecks = Array.from(checkboxes)
-    .filter((check) => check.checked)
-    .map((check) => check.value);
+      }       
+        
+        
+       if(document.title == 'Details'){
+        
+        let id = new URLSearchParams(location.search).get('id')
+        console.log(id)
+        this.evento = this.eventos.all.find(evento => evento._id == id)
+        
 
-  combinacionDeFiltros();
-});
-  array.forEach((categoria) => {
-    let divContainer = document.createElement("div");
-    divContainer.className = "contenedor__check";
+       }
+       window.onscroll = function () {
+        document.querySelector(".go-top-container").addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+        if (document.documentElement.scrollTop > 100) {~
+          document.querySelector(".go-top-container").classList.add("show");
+        } else {
+          document.querySelector(".go-top-container").classList.remove("show");
+        }
+      };
+        
 
-    divContainer.innerHTML = `<input type="checkbox" name="${categoria}" id="${
-      categoria.split(" ")[0]
-    }" value="${categoria}"><label for="${categoria.replace(
-      " ",
-      "-"
-    )}">${categoria}</label>`;
+      })
+    },
+    statsEvents (categorias, eventos, guardo){ //necesito pasarle: categorias que usará y eventos además de donde los voy a almacenar
+        let revAcumulador = 0 // revenues
+        let perAcumulador = 0 //porcentaje
+        let totEvents = 0
+
+        categorias.map(category => {
+          guardo.push({
+            category: category,
+            events : eventos.filter(evento => evento.category === category)
+          })
+        })
+
+        guardo.map(elemento => {
+
+            elemento.events.forEach(
+              (evento) => (revAcumulador += evento.price * ((evento.date > this.dateC)?evento.estimate:evento.assistance))
+            )
+
+            elemento.revenues = revAcumulador;
+            
+
+            elemento.events.forEach((evento) => {
+              perAcumulador += (((evento.date > this.dateC)?evento.estimate:evento.assistance)* 100) / evento.capacity;
+              totEvents++;
+            });
+
+            elemento.percentage = (perAcumulador / totEvents).toFixed(2);
+            revAcumulador = 0;
+            perAcumulador = 0;
+            totEvents = 0;
+          
+          
+
+        })
+
+    },
+    
+  },
+  computed:{
+    papaFiltro(){
+
+      if(this.catBuscadas.length==0 && this.txtBuscado==''){
+        this.finalEvents = this.backUpEventos
+      }
       
-    categoriasContend.appendChild(divContainer);
-  });
-}
+      if(this.catBuscadas.length == 0 && this.txtBuscado!=''){
+        this.finalEvents = this.backUpEventos.filter(evento => evento.name.toLowerCase().includes(this.txtBuscado.toLowerCase()))
+      }
+      if(this.catBuscadas.length > 0 && this.txtBuscado == ''){
+        this.finalEvents = this.backUpEventos.filter(evento => this.catBuscadas.includes(evento.category))
+      }
+      if(this.catBuscadas.length > 0 && this.txtBuscado!=''){
+        this.finalEvents = this.backUpEventos.filter(evento => evento.name.toLowerCase().includes(this.txtBuscado.toLowerCase())).filter(evento => this.catBuscadas.includes(evento.category))
+      }
 
-
-
-// ----------------------------------------------- F I L T R O ----------------------------------------------
-
-function combinacionDeFiltros() {
-  arrayEventFilter = [];
-  //por defecto, que muestre todas las cartas
-  if (arrayChecks.length == 0 && buscadorText.length == 0) {
-    arrayEventFilter = arrayCartas;
-  } //si hay algo en el buscador y en los checks
-  if (arrayChecks.length > 0 && buscadorText !== "") {
-    arrayChecks.forEach((categoria) => {
-      arrayEventFilter.push(
-        arrayCartas.filter(
-          (evento) =>
-            evento.name.toLowerCase().includes(buscadorText.trim()) &&
-            evento.category == categoria
-        )
-      );
-    });
-  } //si hay algo en los checks y no en el buscador
-  if (arrayChecks.length > 0 && buscadorText == "") {
-    arrayChecks.forEach((categoria) => {
-      arrayEventFilter.push(
-        arrayCartas.filter((evento) => evento.category == categoria)
-      );
-    });
-  } //si hay algo en el buscador y no en los checks
-  if (arrayChecks.length == 0 && buscadorText !== "") {
-    arrayEventFilter.push(
-      arrayCartas.filter((evento) =>
-        evento.name.toLowerCase().includes(buscadorText.trim())
-      )
-    );
-  }
-
-  mostrarCartasFiltradas(arrayEventFilter.flat());
-
-  console.log(arrayEventFilter);
-}
-
-// ----------------------------------------------- P I N T A R  C A R T A S ----------------------------------------------
-
-//para mostrar en pantalla las cartas
-function mostrarCartasFiltradas(arrayCart) {
-  let ponerCarta = "";
-
-  if (arrayCart.length > 0) {
-    arrayCart.forEach((evento) => {
-      ponerCarta += `
-    <div class="card card_tarjeta text-center">
-        <img src=${evento.image} class="card-img-top img-card" alt="${
-        evento.name
-      }">
-        <div class="card-body">
-          <h5 class="card-title">${evento.name}</h5>
-          <p class="card-text">${evento.description}</p>
-          <div class="d-flex justify-content-between">
-            <p>Price ##${evento.price}</p>
-            <a href="${
-              document.title == "Home"
-                ? `assets/html/describe.html?id=${evento._id}`
-                : `../html/describe.html?id=${evento._id}`
-            }" class="btn_m"><img class="btn_more" src=${
-        document.title == "Home" ? "assets/img/btn.png" : "../img/btn.png"
-      } alt="btn"></a>
-          </div>
-        </div>
-    </div>`;
-
-      contenido.innerHTML = ponerCarta;
-    });
-  } else {
-    contenido.innerHTML = `<div class="container__error"><img src=${
-      document.title == "Home"
-        ? `assets/img/404-error.svg`
-        : `../img/404-error.svg`
-    } alt="img_error"> <br>
-    <h2>Try again with another search 😿</h2></div>`;
-  }
-}
-
-function pintarEvento(evento) {
-  let eventVariable = assistanceOrEstimate();
-
-  function assistanceOrEstimate() {
-    if (evento.date > date) {
-      return `Estimate: ${evento.estimate}`;
-    } else {
-      return `Assistance: ${evento.assistance}`;
-    }
-  }
-
-  contenedor.innerHTML = "";
-  let div = document.createElement("div");
-  div.className =
-    "d-flex  cart_detail justify-content-center align-items-center flex-wrap";
-  div.innerHTML = `
-  <div class="img_details__c">
-    <img src="${evento.image}" class="img-detail" alt="${evento.category}">
-  </div>
-  <div class="d-flex flex-column align-self-center texto_details">
-    <h4 class="card-title text-center">${evento.name}</h4>
-    
-    <p class="detailsDesc text-justify">${evento.description}</p>
-    <div class="d-flex details_content">
-    <p class="text-justify">Date ${evento.date}</p>
-    <p class="text-justify">Place: ${evento.place}</p>
-    </div>
-    <div class="d-flex details_content">
-    <p class="text-justify ">Capacity: ${evento.capacity}</p>
-    <p class="text-justify ">${eventVariable}</p>
-    </div>
-    <div class="d-flex details_content">
-    <p class="text-justify ">Category: ${evento.category}</p>
-    <p class="text-justify ">Price: ${evento.price}</p>
-    </div>
+    },
     
 
-  </div>
-`;
-
-  contenedor.appendChild(div);
-}
-
-//----------------------------------------------- BOTONCITO PARA IR ARRIBA ----------------------------------------------
-
-window.onscroll = function () {
-  document.querySelector(".go-top-container").addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  });
-  if (document.documentElement.scrollTop > 100) {~
-    document.querySelector(".go-top-container").classList.add("show");
-  } else {
-    document.querySelector(".go-top-container").classList.remove("show");
   }
-};
-
-
+}).mount('#app')
