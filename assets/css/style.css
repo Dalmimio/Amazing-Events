@@ -1,6 +1,63 @@
 /* - - - - - - - - - - Fonts - - - - - - - - - - */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+[v-cloak] {
+    display: none;
+  }
 
+  .lds-heart {
+    display: inline;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform: rotate(45deg);
+    transform-origin: 40px 40px;
+  }
+  .lds-heart div {
+    
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: rgb(190, 190, 190);
+    animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .lds-heart div:after,
+  .lds-heart div:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: rgb(190, 190, 190);
+  }
+  .lds-heart div:before {
+    left: -69px;
+    border-radius: 50% 0 0 50%;
+  }
+  .lds-heart div:after {
+    top: -69px;
+    border-radius: 50% 50% 0 0;
+  }
+  @keyframes lds-heart {
+    0% {
+      transform: scale(0.95);
+    }
+    5% {
+      transform: scale(1.1);
+    }
+    39% {
+      transform: scale(0.85);
+    }
+    45% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(0.9);
+    }
+  }
+  
 /* - - - - - - - - - - Variables - - - - - - - - - - */
 :root {
     --color-text-ligth: white;
@@ -73,9 +130,11 @@ nav{
 .carousel_header{
     height: 8vh;
 }
+
+
 /* - - - - - - - - - - M A I N - - - - - - - - - - */
 main{
-    min-height: 73vh;
+    min-height: 75vh;
     background-color: var(--color-background);
     background-image: url(https://pbs.twimg.com/media/Fd7PmkvWAAs_6t2?format=png&name=small);
 }
@@ -98,7 +157,6 @@ main{
 .card{
     background:#ffffff1c !important;
     width: 15rem;
-    height: 28rem;
     color: var(--color-text-ligth);
 }
 .card_tarjeta{
@@ -110,11 +168,10 @@ main{
 .card_tarjeta:hover{
     transform: scale(1.02);
 }
-.card-body{
-    height: 14rem;
-}
+
 .card-text{
     height: 60%;
+    font-weight: 100 !important;
 }
 .img-card{
     width: 100%;
@@ -126,12 +183,9 @@ main{
 
 .btn{
     width: 3rem !important;
-    background: linear-gradient(#e06e90, #3ad093)  !important;
-
-}
+    }
 
 .btn:hover{
-    background: linear-gradient(#1a5597,#e06e90)  !important;
     background-color: var(--color-btn--primary) !important;
     border: none;
     color: var(--color-text-ligth) !important;
@@ -164,14 +218,17 @@ main{
 .container__error{
     color: var(--color-text-ligth);
     width: 100%;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 !important;
 }
 
 .container__error img{
-    width: 50%;
+    width: 43%;
+}
+.container__error h2{
+    font-size: 1.5rem;
 }
 /* - - - - - - - - - - C O N T A C T - - - - - - - - - - */
 #contenido_contact{
@@ -266,17 +323,17 @@ margin: 10px;
 
 /* - - - - - - - - - - S T A T S - - - - - - - - - - */
 #stat__content{
-    min-height: 73vh;
+    min-height: 75vh;
 }
-table, th, tr{
+table, th, tr, td{
     border: solid 1px rgb(0, 0, 0);
 }
 table{
-    width: 80% !important;
+    width: 70% !important;
     padding: 0  !important;
 }
-th{   
-    width: 20%; 
+td{
+    width: 15%; 
     font-size: 15px;
     background-color: rgba(240, 248, 255, 0.137) !important;
 }
@@ -384,7 +441,17 @@ footer{
     width: 80%;
 }
 /* - - - - - - - - - - M E D I A  Q U E R Y - - - - - - - - - - */
-
+@media screen and (min-width: 1500px){
+    *{
+        font-size: 1.5rem;
+    }
+    .card{
+        width: 20rem !important;
+    }
+    h5{
+        font-size: 2rem;
+    }
+}
 
 @media screen and (max-width: 1050px){
     #contenido{
@@ -508,3 +575,4 @@ footer{
     
 
 }
+
