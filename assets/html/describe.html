@@ -16,63 +16,93 @@
 
 <body  class="body">
 
-  <header class="header__describe">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/index.html"><img class="logo__nav img-fluid" src="../img/logoAmazingEvents.png"
-            alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link style_nav text-white" aria-current="page" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link style_nav text-white" href="upcomming_events.html">Upcomming Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link style_nav text-white" href="past_events.html">Past Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link style_nav text-white" href="contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link style_nav text-white" href="stats.html">Stats</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-  </header>
-
-  <main class="d-flex flex-wrap justify-content-center align-items-center text-light" id="main__describe">
-
-
+  <div id="app">
+    <header class="header__describe">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/index.html"><img class="logo__nav img-fluid" src="../img/logoAmazingEvents.png"
+              alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link style_nav text-white" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link style_nav text-white" href="upcomming_events.html">Upcomming Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link style_nav text-white" href="past_events.html">Past Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link style_nav text-white" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link style_nav text-white" href="stats.html">Stats</a>
+              </li>
   
-  </main>
-
-  <footer class="text-white">
-    <div class="f__redes">
-      <a href="https://www.instagram.com/"><img src="../img/ig.png" class="icon__footer" alt=""></a>
-      <a href="https://www.facebook.com/"><img src="../img/facebook.png" class="icon__footer" alt=""></a>
-      <a href="https://web.whatsapp.com/"><img src="../img/wsp.png" class="icon__footer" alt=""></a>
-    </div>
-    <h3>Amazing Events</h3>
-    <div>
-      <h3>Desing by Dalila</h3>
-    </div>
-  </footer>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    </header>
+  
+    <main class="d-flex flex-wrap justify-content-center align-items-center text-light" id="main__describe">
+    
+      <div v-if="evento" class="d-flex  cart_detail justify-content-center align-items-center flex-wrap">
+    
+        <div class="img_details__c">
+          <img :src="evento.image" class="img-detail" alt="{{evento.category}}">
+        </div>
+        <div class="d-flex flex-column align-self-center texto_details justify-content-between text-center">
+          <h4 class="card-title text-center">{{evento.name}}</h4>
+    
+          <p class="detailsDesc text-justify">{{evento.description}}</p>
+          <div class="d-flex details_content">
+            <p class="text-justify">Date {{evento.date}}</p>
+            <p class="text-justify">Place: {{evento.place}}</p>
+          </div>
+          <div class="d-flex details_content">
+            <p class="text-justify ">Capacity: {{evento.capacity}}</p>
+            <p class="text-justify ">{{evento.date>date?'Estimate: ' + evento.estimate:'Assistance: '+evento.assistance}}</p>
+          </div>
+          <div class="d-flex details_content">
+            <p class="text-justify ">Category: {{evento.category}}</p>
+            <p class="text-justify ">Price: {{evento.price}}</p>
+          </div>
+    
+    
+        </div>
+    
+      </div>
+    
+    
+    </main>
+  
+    <footer class="text-white">
+      <div class="f__redes">
+        <a href="https://www.instagram.com/"><img src="../img/ig.png" class="icon__footer" alt=""></a>
+        <a href="https://www.facebook.com/"><img src="../img/facebook.png" class="icon__footer" alt=""></a>
+        <a href="https://web.whatsapp.com/"><img src="../img/wsp.png" class="icon__footer" alt=""></a>
+      </div>
+      <h3>Amazing Events</h3>
+      <div>
+        <h3>Desing by Dalila</h3>
+      </div>
+    </footer>
+  </div>
 
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="../js/main.js"></script>
 
 </body>
