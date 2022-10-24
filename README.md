@@ -1,5 +1,5 @@
 # Amazing-events
-Es el segundo proyecto del modulo 2 del bootcamp iniciatec, el mismo es una MPA (Multi Page Aplication), la misma consta de un diseño responsive y adaptable a todas las resoluciones, posee cartas dinamicas, mostrando Home todas las cartas; Upcomming cartas futuras y Past cartas pasadas. Para el dinamismo se uso JavaScript 
+Es el segundo proyecto del modulo 2 del bootcamp iniciatec, el mismo es una MPA (Multi Page Aplication), la misma consta de un diseño responsive y adaptable a todas las resoluciones, posee cartas dinamicas, mostrando Home todas las cartas; Upcomming cartas futuras y Past cartas pasadas. Para el dinamismo se uso JavaScript además de la implementación de una API
 
 
 
