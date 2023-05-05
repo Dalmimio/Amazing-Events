@@ -4,7 +4,7 @@ createApp({
   data(){
     
     return{
-      urlAPI : 'https://amazing-events.herokuapp.com/api/events',
+      urlAPI : 'https://mindhub-xj03.onrender.com/api/amazing',
       eventos : {
         all : [],
         up : [],
